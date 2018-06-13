@@ -1,0 +1,27 @@
+<div class="login">
+		<h1>Ingreso</h1>
+		<br>
+		<form class="form-01" method="post">
+			<p class="field">
+			   	<input type="text" [(ngModel)]='loginAccount.username' name="username" id="username" placeholder="Username" required/>
+			    <i class="mdi mdi-account"></i>
+			</p>
+
+			<p class="field">
+			    <input type="password"  [(ngModel)]='loginAccount.password' name="password" id="password" placeholder="Password" required/>
+			    <i class="mdi mdi-lock"></i>
+			</p>
+
+			<p class="field">		
+				<input type="checkbox" [(ngModel)]='loginAccount.remmemberMe'  name="remmemberMe" id="remmemberMe" />		
+				<label for="recuerdame">Recuerdame</label>
+			</p>
+
+			<p class="submit">
+                <input type="submit" name="sent" value="INGRESAR" (click)="login()">
+			</p>
+			<div class="field text-right">
+				<a routerLink="/reset-password/init" routerLinkActive="active" class="olvido" >¿Olvido su contraseña?</a>
+			</div>
+		</form>
+	</div>

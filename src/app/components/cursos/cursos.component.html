@@ -1,0 +1,91 @@
+<h3>
+    Lista de Cursos
+  </h3>
+<table class="striped" *ngIf="cursos">
+  <thead>
+    <tr>
+      <td>GRADO</td>
+      <td>NIVEL</td>
+      <td>PARALELO</td>
+      <td>GESTION</td>
+      <td>AMBIENTE</td>
+      <td>MATERIAS</td>
+      <td>ESTUDIANTES</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let curso of cursos">
+      <td>{{curso.grado}}</td>
+      <td>{{curso.nivel}}</td>
+      <td>{{curso.paralelo}}</td>
+      <td>{{curso.gestion}}</td>
+      <td>{{curso.ambiente.nombre}}</td>
+      <td><ul>
+          <li *ngFor="let materia of curso.materias">
+            {{materia.nombre}}
+          </li>
+      </ul></td>
+      <td><ul>
+        <li *ngFor="let est of curso.estudiantes">
+            {{est.firstName}} {{est.lastName}}
+        </li>
+      </ul></td>
+      <td>
+          <i class="material-icons" (click)="confirmDelete(curso.id)">delete</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>
+  Anadir nuevo curso
+</h3>
+<form (ngSubmit)="save()">
+  <table>
+    <tr>
+        <td>
+            <label class="form-control-label" for="field_grado">Grado</label>
+            <input type="text" class="form-control" name="grado" id="field_grado"
+                [(ngModel)]="curso.grado" />
+        </td>
+        <td>
+            <label class="form-control-label" for="field_nivel">Nivel</label>
+            <input type="text" class="form-control" name="nivel" id="field_nivel"
+                [(ngModel)]="curso.nivel" />
+        </td>
+      <td>
+          <label class="form-control-label" for="field_paralelo">Paralelo</label>
+          <input type="text" class="form-control" name="paralelo" id="field_paralelo"
+              [(ngModel)]="curso.paralelo" />
+      </td>
+      <td>
+          <label class="form-control-label" for="field_gestion">Gestion</label>
+          <input type="text" class="form-control" name="gestion" id="field_gestion"
+              [(ngModel)]="curso.gestion" />
+      </td>
+      <td>
+          <label class="form-control-label" for="field_ambiente">Ambiente</label>
+          <select materialize="material_select"  [materializeSelectOptions]="selectOptions" id="field_ambiente" name="ambiente" [(ngModel)]="curso.ambiente" >
+            <option [ngValue]="null"></option>  
+            <option *ngFor="let ambOption of ambientes" [value]="ambOption.id">{{ambOption.nombre}}</option>
+          </select>
+    </td>
+    <td>
+        <label class="form-control-label" for="field_materia">Materias</label>
+        <select multiple materialize="material_select"  [materializeSelectOptions]="selectOptions" id="field_materia" name="materia" [(ngModel)]="curso.materia" >
+          <option [ngValue]="null"></option>  
+          <option *ngFor="let matOption of materias" [value]="matOption.id">{{matOption.nombre}}</option>
+        </select>
+  </td> 
+  <td>
+      <label class="form-control-label" for="field_estudiante">Estudiantes</label>
+      <select multiple materialize="material_select"  [materializeSelectOptions]="selectOptions" id="field_estudiante" name="estudiante" [(ngModel)]="curso.estudiante" >
+        <option [ngValue]="null"></option>  
+        <option *ngFor="let estOption of users" [value]="estOption.id">{{estOption.firstName}} {{estOption.lastName}}</option>
+      </select>
+</td> 
+    </tr>
+  </table>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
+</form>

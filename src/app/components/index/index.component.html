@@ -1,3 +1,37 @@
-<p>
-  index works!
-</p>
+<!-- <div  class="parallax-container">
+  <div materialize="parallax" class="parallax">
+    <img src="../../../assets/colegio.jpg">
+  </div>
+</div> -->
+<!-- <div class="section white"> -->
+      <h3 *ngIf="isAuthenticated()">Bienvenido {{account.firstName}}</h3>
+      <h3 *ngIf="!isAuthenticated()">Bienvenido a la Unidad Educativa Santa Maria</h3>
+  
+  <div class="row">
+    <div class="col s6">
+      <div class="card">
+        <div class="card-image">
+          <img src="../../../assets/alumnavillanavalcarnero-1.jpg">
+          <span class="card-title black">Bienvenido al Colegio Santa Maria</span>
+        </div>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="card">
+        <div class="card-image">
+          <img src="../../../assets/somos.jpg">
+          <span class="card-title black">Quienes somos?</span>
+
+        </div>
+        <div class="card-action">
+          <a routerLink="/presentacion">Pulsa aqui</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+<!-- <div  class="parallax-container">
+  <div materialize="parallax" class="parallax">
+    <img src="../../../assets/colegio2.jpg">
+  </div>
+</div> -->

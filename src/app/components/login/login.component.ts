@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.loginAccount)
       .subscribe(() => {
         this.success = true;
-        console.log("BIen hecho puerco");
+        this.router.navigate(['/']);
       }, (response) => this.processError(response));
   }
 

@@ -1,0 +1,49 @@
+<h3>
+    Lista de ambientes
+  </h3>
+<table class="striped" *ngIf="ambientes">
+  <thead>
+    <tr>
+      <td>NOMBRE</td>
+      <td>CAPACIDAD</td>
+      <td>DESCRIPCION</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ambiente of ambientes">
+      <td>{{ambiente.nombre}}</td>
+      <td>{{ambiente.capacidad}}</td>
+      <td>{{ambiente.descripcion}}</td>
+      <td>
+          <i class="material-icons" (click)="confirmDelete(ambiente.id)">delete</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>
+  Anadir nuevo ambiente
+</h3>
+<form (ngSubmit)="save()">
+  <table>
+    <tr>
+        <td>
+            <label class="form-control-label" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                [(ngModel)]="ambiente.nombre" />
+        </td>
+        <td>
+            <label class="form-control-label" for="field_capacidad">Capacidad</label>
+            <input type="text" class="form-control" name="capacidad" id="field_capacidad"
+                [(ngModel)]="ambiente.capacidad" />
+        </td>
+      <td>
+          <label class="form-control-label" for="field_descripcion">Descripcion</label>
+          <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+              [(ngModel)]="ambiente.descripcion" />
+      </td>
+    </tr>
+  </table>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
+</form>

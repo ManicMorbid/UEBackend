@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AccountService} from '../../services/account.service';
+import { PrincipalService } from '../../services/principal.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private accountService : AccountService,
+    private principalService : PrincipalService
+  ) { }
+  account: Account
   ngOnInit() {
+    this.principalService.identity().then((res) =>{
+      this.account=res;
+    }); 
   }
-
+  isAuthenticated() {
+    return this.principalService.isAuthenticated();
+  }
 }

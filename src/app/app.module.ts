@@ -6,6 +6,8 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { AuthGuard } from './AuthGuard';
+import { HttpClientModule } from '@angular/common/http'; 
+
 
 
 import { LoginService } from './services/login.service';
@@ -23,6 +25,13 @@ import { NavComponent } from './components/nav/nav.component';
 import { IndexComponent } from './components/index/index.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CrearAmbienteComponent } from './components/crear-ambiente/crear-ambiente.component';
+import { AmbientesComponent } from './components/ambientes/ambientes.component';
+import { MateriasComponent } from './components/materias/materias.component';
+import { AmbientesService } from './services/ambientes.service';
+import { MateriaService } from './services/materia.service';
+import { CursosComponent } from './components/cursos/cursos.component';
+//import { HttpClient } from 'selenium-webdriver/http';
 
 
 export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestOptions, loadingMaskService: LoadingMaskService) {
@@ -40,7 +49,11 @@ export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestO
     NavComponent,
     IndexComponent,
     PresentacionComponent,
-    FooterComponent
+    FooterComponent,
+    CrearAmbienteComponent,
+    AmbientesComponent,
+    MateriasComponent,
+    CursosComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +61,8 @@ export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestO
     routing,
     FormsModule,
     HttpModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    HttpClientModule
   ],
   providers: [
     LoginService,
@@ -61,7 +75,9 @@ export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestO
       deps: [XHRBackend, RequestOptions, LoadingMaskService]
     },
     AuthGuard,
-    CalificacionesService
+    CalificacionesService,
+    AmbientesService,
+    MateriaService
   ],
   bootstrap: [AppComponent]
 })

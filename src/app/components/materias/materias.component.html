@@ -1,0 +1,58 @@
+<h3>
+    Lista de materias
+  </h3>
+<table class="striped" *ngIf="materias">
+  <thead>
+    <tr>
+      <td>NOMBRE</td>
+      <td>DESCRIPCION</td>
+      <td>NIVEL</td>
+      <td>PROFESOR</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let materia of materias">
+      <td>{{materia.nombre}}</td>
+      <td>{{materia.descripcion}}</td>
+      <td>{{materia.grado}}</td>
+      <td>{{materia.profesor.firstName}} {{materia.profesor.lastName}}</td>
+      <td>
+          <i class="material-icons" (click)="confirmDelete(materia.id)">delete</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>
+  Anadir nueva materia
+</h3>
+<form (ngSubmit)="save()">
+  <table>
+    <tr>
+        <td>
+            <label class="form-control-label" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                [(ngModel)]="materia.nombre" />
+        </td>
+        <td>
+            <label class="form-control-label" for="field_descripcion">Descripcion</label>
+            <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                [(ngModel)]="materia.descripcion" />
+        </td>
+      <td>
+          <label class="form-control-label" for="field_grado">Nivel</label>
+          <input type="text" class="form-control" name="grado" id="field_grado"
+              [(ngModel)]="materia.grado" />
+      </td>
+      <td>
+              <label class="form-control-label" for="field_profesor">Profesor</label>
+              <select materialize="material_select"  [materializeSelectOptions]="selectOptions" id="field_profesor" name="profesor" [(ngModel)]="materia.profesor" >
+                <option [ngValue]="null"></option>  
+                <option *ngFor="let userOption of users" [value]="userOption.id">{{userOption.firstName}} {{userOption.lastName}}</option>
+              </select>
+      </td>
+    </tr>
+  </table>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
+</form>

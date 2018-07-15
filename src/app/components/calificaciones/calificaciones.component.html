@@ -1,21 +1,25 @@
 <h2>Calificaciones</h2>
-<div class="col s12 m4 l8">
+<div class="col s12 m4 l8" *ngIf="curso">
     <table class="striped">
-        <tr>
-          <th colspan="10">UNIDAD EDUCATIVA SANTA MARIA<br>BOLETIN DE CALIFICACION</th>
-        </tr>
-        <tr>
-          <td>NIVEL: SECUNDARIA<br>CODIGO SIE: XXXXX</td>
-          <td></td>
-          <td colspan="4">GESTION 2018</td>
-          <td colspan="3">FECHA: 09/06/2018</td>
-          <td>N: 30</td>
-        </tr>
-        <tr>
-          <td colspan="7">NOMBRE COMPLETO:</td>
-          <td colspan="3">CURSO: SEXTO DE SECUNTADIA "A"</td>
-        </tr>
-        <tr>
+      <thead>
+          <tr>
+              <th colspan="10">UNIDAD EDUCATIVA {{colegio[0].nombre}}<br>BOLETIN DE CALIFICACION</th>
+            </tr>
+            <tr>
+              <td>NIVEL: {{curso.nivel}}<br>CODIGO SIE: {{colegio[0].sie}}</td>
+              <td></td>
+              <td colspan="4">GESTION {{curso.gestion}}</td>
+              <td colspan="3">FECHA: {{date}}</td>
+              <td>N: </td>
+            </tr>
+            <tr>
+              <td colspan="7">NOMBRE COMPLETO:{{account.firstName.toUpperCase()+" "+account.lastName.toUpperCase()}}</td>
+              <td colspan="3">CURSO: {{curso.grado.toUpperCase()+" DE "+curso.nivel.toUpperCase()+" "+curso.paralelo}}</td>
+            </tr>
+      </thead>
+      <tbody>
+            
+      <tr>
           <td rowspan="2">ASIGNATURAS</td>
           <td colspan="5">EVALUACION CUANTITATIVA</td>
           <td colspan="4">EVALUACION CUALITATIVA</td>
@@ -31,6 +35,22 @@
           <td>3er Bimestre</td>
           <td>4to Bimestre</td>
         </tr>
+        <tr *ngFor="let nota of notas">
+          <td>{{nota.materia.nombre.toUpperCase()}}</td>
+          <td>{{nota.primerbimestrecuantitativo}}</td>
+          <td>{{nota.segundobimestrecuantitativo}}</td>
+          <td>{{nota.tercerbimestrecuantitativo}}</td>
+          <td>{{nota.cuartobimestrecuantitativo}}</td>
+          <td>{{(nota.primerbimestrecuantitativo+nota.segundobimestrecuantitativo+nota.tercerbimestrecuantitativo+nota.cuartobimestrecuantitativo)/4}}</td>
+          <td>{{nota.primerbimestrecualitativo}}</td>
+          <td>{{nota.segundobimestrecualitativo}}</td>
+          <td>{{nota.tercerbimestrecualitativo}}</td>
+          <td>{{nota.cuartobimestrecualitativo}}</td>
+
+        </tr>
+        <!--
+
+        
         <tr>
           <td>COMUNICACION Y LENGUAJE</td>
           <td></td>
@@ -187,4 +207,7 @@
           <td></td>
           <td></td>
         </tr>
+        -->
+        
+        </tbody>
       </table>

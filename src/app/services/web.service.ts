@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ConnectionBackend, Headers, Http, RequestOptions, RequestOptionsArgs, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
-import {SERVER} from '../server.conf';
+import {SERVER_API_URL} from '../app.constats';
 import {LoadingMaskService} from './loadingmask.service';
 
 /**
@@ -92,7 +92,7 @@ export class WebService extends Http {
   }
 
   private getServerURL(url: string) {
-    return SERVER.URL.BASE + url;
+    return SERVER_API_URL + url;
   }
   /**
    * Returns form-data like Content-Type Header option.
@@ -115,7 +115,10 @@ export class WebService extends Http {
    * @param {String} token - Token to be saved in session storage. 
    */
   getAuthHeaders(token?: string) {
-    const sessionToken = window.sessionStorage.getItem('currentToken');
+    let sessionToken = window.sessionStorage.getItem('ng2-webstorage|token');
+    if(sessionToken != null){
+      sessionToken = sessionToken.replace(/['"]+/g, '');
+    }
     const headers = new Headers({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + (token ? token : sessionToken)

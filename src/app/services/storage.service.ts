@@ -22,4 +22,8 @@ export class StorageService {
   isExpiredToken():boolean{
     return tokenNotExpired();
   }
+  clear(){
+    this.localStorage.clear('token');
+    this.sessionStorage.clear('token');
+  }
 }

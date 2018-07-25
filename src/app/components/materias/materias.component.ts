@@ -24,7 +24,15 @@ export class MateriasComponent implements OnInit {
 
     this.userService.query()
     .subscribe(res => {
-      this.users = res;
+      let ans=[];
+      for(let user of res) {
+        for(let aut of user['authorities'] ){
+          if(aut=="ROLE_ADMIN"){
+            ans.push(user);
+          }
+        }
+      }
+      this.users = ans;
     });
   }
   loadAll(){

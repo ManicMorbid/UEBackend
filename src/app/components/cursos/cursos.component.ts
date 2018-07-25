@@ -34,7 +34,15 @@ export class CursosComponent implements OnInit {
       this.materias = res;
     });
     this.userService.query().subscribe(res => {
-      this.users = res;
+      let ans=[];
+      for(let user of res) {
+        for(let aut of user['authorities'] ){
+          if(aut=="ROLE_USER" && user['authorities'].length==1){
+            ans.push(user);
+          }
+        }
+      }
+      this.users = ans;
     })
 
   }

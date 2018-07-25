@@ -3,6 +3,8 @@ import {IndexComponent} from './components/index/index.component';
 import {LoginComponent} from './components/login/login.component';
 import {CalificacionesComponent} from './components/calificaciones/calificaciones.component';
 import {EvaluacionComponent} from './components/evaluacion/evaluacion.component';
+import {InscripcionComponent} from './components/inscripcion/inscripcion.component';
+
 
 import { AuthGuard } from './AuthGuard'
 import { AmbientesComponent } from './components/ambientes/ambientes.component';
@@ -42,6 +44,9 @@ export const appRoutes: Routes = [
     }, {
         path: 'cursos',
         component: CursosComponent
+    }, {
+        path: 'inscripcion',
+        component: InscripcionComponent
     }
 ];
 

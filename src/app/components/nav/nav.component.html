@@ -1,11 +1,11 @@
 <header>
   <div materialize class="navbar-fixed">
       <ul class="dropdown-content" id="dropdown1">
-          <li><a routerLink='/ambientes'>Ambientes</a></li>
-          <li><a routerLink='/materias'>Materias</a></li>  
-          <li><a routerLink='/cursos'>Cursos</a></li>
-        <li><a routerLink='/calificaciones'>Calificaciones</a></li>    
-        <li><a routerLink='/evaluacion'>Evaluacion</a></li> 
+          <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/ambientes'>Ambientes</a></li>
+          <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/materias'>Materias</a></li>  
+          <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/cursos'>Cursos</a></li>
+          <li *jhiHasAnyAuthority="'ROLE_USER'"><a routerLink='/calificaciones'>Calificaciones</a></li>    
+          <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/evaluacion'>Evaluacion</a></li> 
           
           <li class="divider"></li>
           <li><a (click)="logout()">Desconectarse</a></li>

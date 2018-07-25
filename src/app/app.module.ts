@@ -15,6 +15,7 @@ import { StorageService } from './services/storage.service';
 import { WebService } from './services/web.service';
 import { LoadingMaskService } from './services/loadingmask.service';
 import { CalificacionesService } from './services/calificaciones.service';
+import {HasAnyAuthorityDirective} from './services/has-any-authority.directive';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,7 +26,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { IndexComponent } from './components/index/index.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CrearAmbienteComponent } from './components/crear-ambiente/crear-ambiente.component';
 import { AmbientesComponent } from './components/ambientes/ambientes.component';
 import { MateriasComponent } from './components/materias/materias.component';
 import { AmbientesService } from './services/ambientes.service';
@@ -51,11 +51,11 @@ export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestO
     IndexComponent,
     PresentacionComponent,
     FooterComponent,
-    CrearAmbienteComponent,
     AmbientesComponent,
     MateriasComponent,
     CursosComponent,
-    InscripcionComponent
+    InscripcionComponent,
+    HasAnyAuthorityDirective
   ],
   imports: [
     BrowserModule,

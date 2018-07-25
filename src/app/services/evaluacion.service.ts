@@ -17,10 +17,8 @@ export class EvaluacionService {
     private accountService : AccountService
   ) { }
   getCursos(id): Observable<any>{
-    console.log(id);
     return this.webService.get(SERVER_API_URL+'cursos', this.webService.getAuthHeaders())
     .map(res => {
-      console.log(res.json());
       const cursos = res.json();
       let ans=[];
       for(let curso of cursos){

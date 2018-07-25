@@ -29,4 +29,14 @@ export class CalificacionesService {
       return ans;
     });
   }
+  get(): Observable<any> {
+    return this.webService.get(SERVER_API_URL+'calificacions', this.webService.getAuthHeaders())
+    .map(res => {
+      return res.json();
+    });
+  }
+  create(nota): Observable<any> {
+    return this.webService.post(SERVER_API_URL+'calificacions', nota, this.webService.getAuthHeaders())
+    .map(res => res); 
+  }
 }

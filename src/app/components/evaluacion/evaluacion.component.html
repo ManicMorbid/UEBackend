@@ -1,6 +1,5 @@
 <h3>Aca puede realizar su evaluacion</h3>
-<form>
-<table *ngFor="let curso of cursos">
+<table *ngFor="let curso of todo">
   <thead>
       <tr>
         <td colspan="5" class="center">{{curso.grado.toUpperCase()+" "+curso.nivel.toUpperCase()+" "+curso.paralelo}}</td>
@@ -11,17 +10,19 @@
         <td>2do Bim</td>
         <td>3er Bim</td>
         <td>4to Bim</td>
+        <td></td>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let estudiante of curso.estudiantes">
-        <td>{{estudiante.firstName+" "+estudiante.lastName}}</td>
-        <td><input type="text"/></td>
-        <td><input type="text"/></td>
-        <td><input type="text"/></td>
-        <td><input type="text"/></td>
+        <form action="save(estudiante, curso)">
+            <td>{{estudiante.firstName+" "+estudiante.lastName}}</td>
+            <td><input type="text" placeholder="{{estudiante.nota.primerbimestrecuantitativo}}"  [(ngModel)]="nota.primerbimestrecuantitativo" name="primerbimestrecuantitativo" id="primerbimestrecuantitativo"/></td>
+            <td><input type="text" placeholder="{{estudiante.nota.segundobimestrecuantitativo}}" [(ngModel)]="nota.segundobimestrecuantitativo" name="segundobimestrecuantitativo" id="segundobimestrecuantitativo"/></td>
+            <td><input type="text" placeholder="{{estudiante.nota.tercerbimestrecuantitativo}}" [(ngModel)]="nota.tercerbimestrecuantitativo" name="tercerbimestrecuantitativo" id="tercerbimestrecuantitativo"/></td>
+            <td><input type="text" placeholder="{{estudiante.nota.cuartobimestrecuantitativo}}" [(ngModel)]="nota.cuartobimestrecuantitativo" name="cuartobimestrecuantitativo" id="cuartobimestrecuantitativo"/></td>
+            <input type="submit" value="Guardar">
+        </form>
       </tr>
   </tbody>
-  <a class="waves-effect waves-light btn-large" >Guardar</a>
 </table>
-</form>

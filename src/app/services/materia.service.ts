@@ -23,4 +23,13 @@ export class MateriaService {
     return this.webService.delete(SERVER_API_URL+'materias/'+id, this.webService.getAuthHeaders())
     .map(res => res);
   }
+  getOf(id): Observable<any> {
+    return this.webService.get(SERVER_API_URL+'materias', this.webService.getAuthHeaders())
+    .map(res => {
+      for(let materia of res.json()) {
+        if(materia.profesor.id == id)
+         return materia;
+      }
+    })
+  }
 }

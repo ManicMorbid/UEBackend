@@ -11,6 +11,7 @@ import { AmbientesComponent } from './components/ambientes/ambientes.component';
 import { PresentacionComponent } from './components/presentacion/presentacion.component';
 import { MateriasComponent } from './components/materias/materias.component';
 import { CursosComponent } from './components/cursos/cursos.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 
 export const appRoutes: Routes = [
@@ -47,6 +48,9 @@ export const appRoutes: Routes = [
     }, {
         path: 'inscripcion',
         component: InscripcionComponent
+    }, {
+        path: 'registro',
+        component: RegistroComponent
     }
 ];
 

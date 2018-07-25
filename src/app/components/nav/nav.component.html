@@ -4,9 +4,10 @@
           <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/ambientes'>Ambientes</a></li>
           <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/materias'>Materias</a></li>  
           <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/cursos'>Cursos</a></li>
-          <li *jhiHasAnyAuthority="'ROLE_USER'"><a routerLink='/calificaciones'>Calificaciones</a></li>    
           <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/evaluacion'>Evaluacion</a></li> 
-          
+          <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/inscripcion'>Inscripcion de estudiantes</a></li> 
+          <li *jhiHasAnyAuthority="'ROLE_ADMIN'"><a routerLink='/registro'>Registro de profesores</a></li> 
+          <li *jhiHasAnyAuthority="'ROLE_USER'"><a routerLink='/calificaciones'>Calificaciones</a></li>    
           <li class="divider"></li>
           <li><a (click)="logout()">Desconectarse</a></li>
         </ul>

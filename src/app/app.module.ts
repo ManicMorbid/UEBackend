@@ -32,6 +32,7 @@ import { AmbientesService } from './services/ambientes.service';
 import { MateriaService } from './services/materia.service';
 import { CursosComponent } from './components/cursos/cursos.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
+import { RegistroComponent } from './components/registro/registro.component';
 //import { HttpClient } from 'selenium-webdriver/http';
 
 
@@ -55,7 +56,8 @@ export function httpServiceFactory(backend: XHRBackend, defaultOptions: RequestO
     MateriasComponent,
     CursosComponent,
     InscripcionComponent,
-    HasAnyAuthorityDirective
+    HasAnyAuthorityDirective,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

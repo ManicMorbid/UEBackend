@@ -15,14 +15,14 @@
   </thead>
   <tbody>
       <tr *ngFor="let estudiante of curso.estudiantes">
-        <form action="save(estudiante, curso)">
+        <!-- <form action="save(estudiante, curso)"> -->
             <td>{{estudiante.firstName+" "+estudiante.lastName}}</td>
-            <td><input type="text" placeholder="{{estudiante.nota.primerbimestrecuantitativo}}"  [(ngModel)]="nota.primerbimestrecuantitativo" name="primerbimestrecuantitativo" id="primerbimestrecuantitativo"/></td>
-            <td><input type="text" placeholder="{{estudiante.nota.segundobimestrecuantitativo}}" [(ngModel)]="nota.segundobimestrecuantitativo" name="segundobimestrecuantitativo" id="segundobimestrecuantitativo"/></td>
-            <td><input type="text" placeholder="{{estudiante.nota.tercerbimestrecuantitativo}}" [(ngModel)]="nota.tercerbimestrecuantitativo" name="tercerbimestrecuantitativo" id="tercerbimestrecuantitativo"/></td>
-            <td><input type="text" placeholder="{{estudiante.nota.cuartobimestrecuantitativo}}" [(ngModel)]="nota.cuartobimestrecuantitativo" name="cuartobimestrecuantitativo" id="cuartobimestrecuantitativo"/></td>
+            <td><input type="text" value="{{estudiante.nota.primerbimestrecuantitativo}}" /></td>
+            <td><input type="text" value="{{estudiante.nota.segundobimestrecuantitativo}}" /></td>
+            <td><input type="text" value="{{estudiante.nota.tercerbimestrecuantitativo}}" /></td>
+            <td><input type="text" value="{{estudiante.nota.cuartobimestrecuantitativo}}" /></td>
             <input type="submit" value="Guardar">
-        </form>
+        <!-- </form> -->
       </tr>
   </tbody>
 </table>

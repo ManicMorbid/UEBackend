@@ -14,7 +14,7 @@ export class InscripcionService {
   create(user):Observable<any> {
     user['login'] = user['firstName'] + user['lastName'];
     user['password'] = user['ru'];
-    //user['email'] = user['login']+"@gmail.com";
+    user['email'] = user['login']+"@gmail.com";
     return this.webService.post(SERVER_API_URL+'register', user, this.webService.getAuthHeaders())
     .map(res => res);
   }

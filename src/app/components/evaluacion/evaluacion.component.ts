@@ -43,22 +43,25 @@ export class EvaluacionComponent implements OnInit {
       .subscribe(response => {
         for (let curso of this.cursos){
           for (let estudiante of curso.estudiantes){
+            let sw = false;
             for(let nota of response){
               if(nota.userestudiante.id === estudiante.id){
                 estudiante.nota = nota;
-              } else {
-                estudiante.nota = {
-                  primerbimestrcuantitativo: 0,
-                  segundobimestrcuantitativo: 0,
-                  tercerbimestrcuantitativo: 0,
-                  cuartobimestrcuantitativo: 0,
-                }
+                sw = true;
+              }
+            }
+            if(!sw){
+              estudiante['nota'] = {
+                'primerbimestrcuantitativo': 0,
+                'segundobimestrcuantitativo': 0,
+                'tercerbimestrcuantitativo': 0,
+                'cuartobimestrcuantitativo': 0,
               }
             }
           }
           this.todo.push(curso);
         }
-        //console.log(this.todo);
+        console.log(this.todo);
       });
     });
   }

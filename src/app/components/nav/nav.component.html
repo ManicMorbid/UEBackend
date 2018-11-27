@@ -12,16 +12,15 @@
           <li><a (click)="logout()">Desconectarse</a></li>
         </ul>
     <nav>
-      <div materialize class="nav-wrapper light-blue darken-4">
+      <div materialize class="nav-wrapper light-green darken-4">
         <span>
         <a href="#!" materialize class="brand-logo">
           <img materialize class="responsive-img" id="logo" src="../../../assets/logo.png" height="60" width="160">
         </a>
       </span>
         <ul class="right hide-on-med-and-down">
-            <li><a routerLink="/presentacion">Presentacion</a></li>
-            <li><a routerLink="/oferta">Oferta educativa</a></li>
-            <li><a routerLink="/blog">Blog</a></li>
+            
+            <li><a routerLink="/index">Oferta educativa</a></li>
             <li *ngIf="!isAuthenticated()"><a routerLink="/login">Login</a></li>
             <li *ngIf="isAuthenticated()"><a class="dropdown-trigger" data-activates="dropdown1" href="#" materialize="dropdown">Tareas</a><i class="material-icons right">arrow_drop_down</i></li>
         </ul>
